@@ -8,6 +8,6 @@ function fakeAjaxLoginRequest(username, password) {
     if (username && password) {
       resolve({ auth_token: 'faketoken123456789' })
     }
-    reject(new Error('Authentication failed!'))
+    reject(new Error('Authentication failed! 🥝 '))
   })
 }
