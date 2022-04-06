@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import { requestLogin } from '../ajax-requests'
+import axios from 'axios'
 import '../App.css'
-export default function Login() {
+export default function Login({ setAuth }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
-  const [token, setToken] = useState('')
 
   const handleLogin = (event) => {
     // prevent the default action of the form, which is to make a request
@@ -14,13 +13,16 @@ export default function Login() {
     setError('')
     // Make an ajax request to the backend's URL for login
     // Use the username and password from state to send in the request body
-    // for now use the fake endpoint until we have a real one from the backend
-    requestLogin(username, password)
-      .then((res) => setToken(res.auth_token))
+    axios
+      .post('https://drf-library-api.herokuapp.com/auth/token/login', {
+        username: username,
+        password: password,
+      })
+      .then((res) => {
+        console.log(res.data)
+        setAuth(username, res.data.auth_token)
+      })
       .catch((e) => setError(e.message))
-    // somehow indicate in our application that we are logged in
-    //for now we put the token in state in this component
-    // but it can't stay here because it needs to be shared across the whole app
   }
 
   return (
