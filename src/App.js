@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { InputField, RefInput } from './components/Forms'
+import useLocalStorageState from 'use-local-storage-state'
 import Login from './components/Login'
 const App = () => {
   //use local storage to keep this token hanging around
-  const [token, setToken] = useState('')
-  const [username, setUsername] = useState('')
+  const [token, setToken] = useLocalStorageState('reactDemoToken', '')
+  const [username, setUsername] = useLocalStorageState('reactDemoUsername', '')
 
   const setAuth = (username, token) => {
     setToken(token)
