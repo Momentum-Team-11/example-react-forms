@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { Book } from './Book'
+import { BookCard } from './BookCard'
 export const BookList = ({ token }) => {
   const [books, setBooks] = useState([])
   const [bookTitles, setBookTitles] = useState([])
@@ -22,7 +22,11 @@ export const BookList = ({ token }) => {
   return (
     <div className="book-list">
       {books.map((book) => (
-        <Book pk={book.pk} token={token} />
+        <BookCard
+          title={book.title}
+          bookId={book.pk}
+          featured={book.featured}
+        />
       ))}
     </div>
   )

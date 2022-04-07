@@ -5,7 +5,7 @@ import useLocalStorageState from 'use-local-storage-state'
 
 import Login from './components/Login'
 import { BookList } from './components/BookList'
-import { Book } from './components/Book'
+import { BookDetail } from './components/BookDetail'
 
 const App = () => {
   //use local storage to keep this token hanging around
@@ -24,7 +24,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<BookList token={token} />} />
         <Route path="books" element={<BookList token={token} />}></Route>
-        <Route path="books/:bookId" element={<Book token={token} />}></Route>
+        <Route
+          path="books/:bookId"
+          element={<BookDetail token={token} />}
+        ></Route>
         <Route
           path="/login"
           element={<Login setAuth={setAuth} isLoggedIn={isLoggedIn} />}

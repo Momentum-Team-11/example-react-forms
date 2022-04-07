@@ -2,13 +2,13 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 
-export const Book = ({ pk, token }) => {
+export const BookDetail = ({ token }) => {
   const [book, setBook] = useState(null)
   const params = useParams()
-  const bookId = params.bookId || pk
+
   useEffect(() => {
     axios
-      .get(`https://drf-library-api.herokuapp.com/api/books/${bookId}`, {
+      .get(`https://drf-library-api.herokuapp.com/api/books/${params.bookId}`, {
         headers: {
           Authorization: `Token ${token}`,
         },
@@ -16,18 +16,19 @@ export const Book = ({ pk, token }) => {
       .then((res) => {
         setBook(res.data)
       })
-  }, [bookId, token])
+  }, [params.bookId, token])
 
   return (
     <>
+      <Link to="/">Back to all books 📚</Link>
       {book && (
         <>
-          <div className="book" id={pk}>
-            <Link to={`${bookId}`}>
-              <p>{book.title}</p>
-            </Link>
-            <p>{book.author}</p>
-            <p>{book.publication_year}</p>
+          <div className="book content container-box" id={book.pk}>
+            <h2>{book.title}</h2>
+            <div className="details">
+              <p>{book.author}</p>
+              <p>{book.publication_year}</p>
+            </div>
           </div>
         </>
       )}
