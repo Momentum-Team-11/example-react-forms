@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import axios from 'axios'
 import '../App.css'
 
-export default function Login({ setAuth }) {
+export default function Login({ setAuth, isLoggedIn }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -24,6 +25,10 @@ export default function Login({ setAuth }) {
         setAuth(username, res.data.auth_token)
       })
       .catch((e) => setError(e.message))
+  }
+
+  if (isLoggedIn) {
+    return <Navigate to="/" />
   }
 
   return (
