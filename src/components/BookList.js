@@ -20,9 +20,10 @@ export const BookList = ({ token }) => {
   }, [token])
 
   return (
-    <div className="book-list">
+    <div className="book-list container-box">
       {books.map((book) => (
         <BookCard
+          key={book.pk}
           title={book.title}
           bookId={book.pk}
           featured={book.featured}

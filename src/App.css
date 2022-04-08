@@ -1,5 +1,24 @@
+:root {
+  --header-background: #0B3954;
+}
+
 .error {
   padding: 20px;
   background-color: palevioletred;
   color: white;
+}
+
+.header {
+  height: 120px;
+  width: 100%;
+  display: flex;
+  background-color: var(--header-background);
+  color: #FFF;
+  font-size: 48px;
+  padding:30px
+}
+
+
+.container-box {
+  margin: 30px;
 }

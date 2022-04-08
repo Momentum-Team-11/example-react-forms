@@ -20,20 +20,25 @@ const App = () => {
   const isLoggedIn = username && token
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<BookList token={token} />} />
-        <Route path="books" element={<BookList token={token} />}></Route>
-        <Route
-          path="books/:bookId"
-          element={<BookDetail token={token} />}
-        ></Route>
-        <Route
-          path="/login"
-          element={<Login setAuth={setAuth} isLoggedIn={isLoggedIn} />}
-        />
-      </Routes>
-    </Router>
+    <>
+      <header className="header">
+        <h1>Books</h1>
+      </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<BookList token={token} />} />
+          <Route path="books" element={<BookList token={token} />}></Route>
+          <Route
+            path="books/:bookId"
+            element={<BookDetail token={token} />}
+          ></Route>
+          <Route
+            path="/login"
+            element={<Login setAuth={setAuth} isLoggedIn={isLoggedIn} />}
+          />
+        </Routes>
+      </Router>
+    </>
   )
 }
 
