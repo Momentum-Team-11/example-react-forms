@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 export const BookCard = ({ title, bookId, featured }) => {
   return (
     <div className="book card" id={bookId}>
-      <div class="card-content">
-        <div class="content">
+      <div className="card-content">
+        <div className="content">
           <Link to={`books/${bookId}`}>
             <p>
               {title}{' '}
               {featured && (
                 <span className="icon">
-                  <i class="fa-solid fa-feather-pointed"></i>
+                  <i className="fa-solid fa-feather-pointed"></i>
                 </span>
               )}
             </p>
