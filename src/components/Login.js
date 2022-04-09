@@ -33,36 +33,51 @@ export default function Login({ setAuth, isLoggedIn }) {
 
   return (
     <div className="Login">
-      <h2>Log In</h2>
       {error && <div className="error">{error}</div>}
-      <form onSubmit={handleLogin}>
-        <div className="field-controls">
-          <label className="input-label" htmlFor="username">
+      <form onSubmit={handleLogin} className="section">
+        <div className="field">
+          <label className="label" htmlFor="username">
             Username
           </label>
-          <input
-            type="text"
-            id="username"
-            required
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+          <div className="control has-icons-left">
+            <input
+              type="text"
+              id="username"
+              className="input is-medium"
+              required
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <span className="icon is-small is-left">
+              <i className="fas fa-user"></i>
+            </span>
+          </div>
         </div>
 
-        <div className="field-controls">
-          <label className="input-label" htmlFor="password">
+        <div className="field">
+          <label className="label" htmlFor="password">
             Password
           </label>
-          <input
-            type="password"
-            id="password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className="control has-icons-left">
+            <input
+              type="password"
+              id="password"
+              className="input is-medium"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span className="icon is-small is-left">
+              <i className="fas fa-envelope"></i>
+            </span>
+          </div>
         </div>
-        <div className="field-controls">
-          <button type="submit">Log in</button>
+        <div className="field is-grouped">
+          <div className="control">
+            <button type="submit" className="button is-link">
+              Log in
+            </button>
+          </div>
         </div>
       </form>
     </div>
