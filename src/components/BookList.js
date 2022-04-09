@@ -29,14 +29,7 @@ export const BookList = ({ token }) => {
   }
 
   if (isLoading) {
-    return (
-      <Skeleton
-        count={10}
-        height="50px"
-        width="90%"
-        containerClassName="skeleton-container"
-      />
-    )
+    return <Skeleton count={10} height="50px" width="90%" />
   }
 
   return (
