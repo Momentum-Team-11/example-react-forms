@@ -42,11 +42,8 @@ const App = () => {
         </header>
         <Routes>
           <Route path="/" element={<BookList token={token} />} />
-          <Route path="books" element={<BookList token={token} />}></Route>
-          <Route
-            path="books/:bookId"
-            element={<BookDetail token={token} />}
-          ></Route>
+          <Route path="books" element={<BookList token={token} />} />
+          <Route path="books/:bookId" element={<BookDetail token={token} />} />
           <Route
             path="/login"
             element={<Login setAuth={setAuth} isLoggedIn={isLoggedIn} />}
