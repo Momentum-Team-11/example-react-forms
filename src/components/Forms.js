@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useState, useRef } from 'react'
 
 // controlled forms
@@ -39,6 +40,29 @@ export const RefInput = () => {
       <input type="text" className="ref-input-field" ref={inputText} />
       <button className="btn-input" onClick={handleClick}>
         Check that Ref!
+      </button>
+    </>
+  )
+}
+
+export const ImageUploadForm = ({ token }) => {
+  const imageFileInput = useRef(null)
+
+  const handleClick = () => {
+    debugger
+    const imageFile = imageFileInput.current.files[0]
+    axios.put(`http://drf-library.herokuapp.com/auth/users/me`, imageFile, {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    })
+  }
+
+  return (
+    <>
+      <input type="file" className="file-upload" ref={imageFileInput} />
+      <button className="btn-input" onClick={handleClick}>
+        Upload
       </button>
     </>
   )

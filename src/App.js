@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react'
-import { InputField, RefInput } from './components/Forms'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import useLocalStorageState from 'use-local-storage-state'
 import NavBar from './components/NavBar'
 import Login from './components/Login'
 import { BookList } from './components/BookList'
 import { BookDetail } from './components/BookDetail'
+import Search from './components/Search'
 import Register from './components/Register'
 import axios from 'axios'
 const App = () => {
@@ -42,6 +41,7 @@ const App = () => {
         </header>
         <Routes>
           <Route path="/" element={<BookList token={token} />} />
+          <Route path="search" element={<Search token={token} />} />
           <Route path="books" element={<BookList token={token} />} />
           <Route path="books/:bookId" element={<BookDetail token={token} />} />
           <Route
