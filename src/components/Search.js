@@ -10,7 +10,7 @@ const Search = ({ token }) => {
     e.preventDefault()
     axios
       .get(
-        `https://drf-library-api.herokuapp.com/api/search?title=${searchTerm.current.value}`,
+        `http://localhost:8000/api/search?title=${searchTerm.current.value}`,
         {
           headers: {
             Authorization: `Token ${token}`,

@@ -11,7 +11,7 @@ export const BookList = ({ token }) => {
 
   useEffect(() => {
     axios
-      .get('https://drf-library-api.herokuapp.com/api/books', {
+      .get('http://localhost:8000/api/books', {
         headers: {
           Authorization: `token ${token}`,
         },

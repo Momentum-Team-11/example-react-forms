@@ -4,6 +4,7 @@ import NavBar from './components/NavBar'
 import Login from './components/Login'
 import { BookList } from './components/BookList'
 import { BookDetail } from './components/BookDetail'
+import { ImageUploadForm } from './components/Forms'
 import Search from './components/Search'
 import Register from './components/Register'
 import axios from 'axios'
@@ -20,7 +21,7 @@ const App = () => {
   const handleLogout = () => {
     axios
       .post(
-        'https://drf-library-api.herokuapp.com/auth/token/logout',
+        'http://localhost:8000/auth/token/logout',
         {},
         {
           headers: { Authorization: `Token ${token}` },
@@ -48,6 +49,7 @@ const App = () => {
             path="/login"
             element={<Login setAuth={setAuth} isLoggedIn={isLoggedIn} />}
           />
+          <Route path="upload" element={<ImageUploadForm token={token} />} />
           <Route
             path="/register"
             element={<Register isLoggedIn={isLoggedIn} />}
